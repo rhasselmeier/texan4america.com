@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Texan4America — Faith. Family. Freedom. Coming Soon.</title>
+<meta name="description" content="Texan4America — a blog and podcast on faith, family, and freedom from a native Texan. Coming soon.">
+<style>
+  :root { --navy:#1a2a4a; --red:#a6373f; --cream:#f5f1e8; --gold:#c9a24b; --ink:#22273a; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:'Segoe UI', system-ui, sans-serif; background:var(--navy); color:var(--cream); line-height:1.65; min-height:100vh; }
+  .stripe { height:8px; background:repeating-linear-gradient(90deg, var(--red) 0 80px, var(--cream) 80px 160px, var(--navy) 160px 240px); }
+  .wrap { max-width:760px; margin:0 auto; padding:0 1.5rem; }
+  header { text-align:center; padding:4.5rem 0 2.5rem; }
+  .star { color:var(--gold); font-size:2.2rem; letter-spacing:.45em; text-shadow:0 0 18px rgba(201,162,75,.45); }
+  h1 { font-family:Rockwell, Georgia, serif; font-size:clamp(2.2rem,6vw,3.4rem); letter-spacing:.04em; text-transform:uppercase; margin:.7rem 0 .3rem; }
+  h1 .four { color:var(--red); text-shadow:0 1px 0 var(--cream); }
+  .motto { font-family:Georgia, serif; font-style:italic; font-size:1.25rem; color:var(--gold); letter-spacing:.06em; }
+  .coming { display:inline-block; margin-top:1.6rem; border:2px solid var(--gold); color:var(--gold); font-weight:700; letter-spacing:.22em; text-transform:uppercase; font-size:.8rem; padding:.55rem 1.4rem; }
+  .creed { max-width:600px; margin:2.4rem auto 0; text-align:center; font-size:1.05rem; color:#d9d4c5; }
+  .creed b { color:var(--cream); }
+  .pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1rem; margin:2.6rem 0; }
+  .pillar { background:rgba(245,241,232,.06); border:1px solid rgba(201,162,75,.35); padding:1.2rem 1rem; text-align:center; }
+  .pillar .ic { color:var(--gold); font-size:1.3rem; }
+  .pillar h3 { font-size:.9rem; letter-spacing:.14em; text-transform:uppercase; margin:.5rem 0 .3rem; }
+  .pillar p { font-size:.85rem; color:#b9b4a5; }
+  section.signup { padding:0 0 4rem; }
+  .box { background:var(--cream); color:var(--ink); border-radius:8px; padding:1.7rem 1.6rem; }
+  .box h2 { font-family:Rockwell, Georgia, serif; font-size:1.25rem; color:var(--navy); text-transform:uppercase; letter-spacing:.06em; text-align:center; }
+  .box .sub { text-align:center; font-size:.92rem; color:#5a5f70; margin:.4rem 0 1.2rem; }
+  form { display:grid; gap:.9rem; }
+  label { font-size:.83rem; font-weight:700; color:var(--navy); }
+  input, textarea { width:100%; padding:.7rem; border:1px solid #c7c2b2; border-radius:6px; background:#fff; font:inherit; font-size:.95rem; }
+  input:focus, textarea:focus { outline:2px solid var(--red); }
+  .fineprint { font-size:.77rem; color:#767b8c; line-height:1.5; }
+  .fineprint a { color:var(--red); }
+  button { background:var(--red); color:var(--cream); font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.85rem 1.7rem; border:0; border-radius:6px; cursor:pointer; }
+  button:hover { background:#8d2b33; }
+  #form-status { font-size:.9rem; margin-top:.4rem; color:var(--navy); }
+  footer { border-top:1px solid rgba(245,241,232,.18); padding:1.8rem 0; text-align:center; font-size:.8rem; color:#9a9586; }
+  footer a { color:var(--gold); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<div class="wrap">
+  <header>
+    <div class="star">&#9733; &#9733; &#9733;</div>
+    <h1>Texan<span class="four">4</span>America</h1>
+    <div class="motto">Faith &middot; Family &middot; Freedom</div>
+    <div class="coming">Blog &amp; Podcast — Coming Soon</div>
+    <p class="creed">Plain talk from a <b>native Texan</b>, husband, and father — on the faith that grounds us, the families that build us, and the freedoms that make America worth defending.</p>
+  </header>
+
+  <div class="pillars">
+    <div class="pillar"><div class="ic">&#10013;</div><h3>Faith</h3><p>Christian values, lived out loud.</p></div>
+    <div class="pillar"><div class="ic">&#9733;</div><h3>Family</h3><p>Fatherhood, legacy, and raising them right.</p></div>
+    <div class="pillar"><div class="ic">&#127482;&#127480;</div><h3>Freedom</h3><p>A proud American's case for liberty.</p></div>
+  </div>
+
+  <section class="signup">
+    <div class="box">
+      <h2>Be First to Listen</h2>
+      <p class="sub">Leave your info and we'll let you know when the first episode drops.</p>
+      <form id="contact-form">
+        <div><label for="name">Name *</label><input id="name" name="name" required autocomplete="name"></div>
+        <div><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div><label for="message">Anything you'd like to hear covered?</label><textarea id="message" name="message" rows="3"></textarea></div>
+        <p class="fineprint">Your info is used only to notify you about the launch and respond to your note — see the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.</p>
+        <div><button type="submit">Keep Me Posted</button><div id="form-status" role="status"></div></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">&copy; 2026 Texan4America &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a></div>
+</footer>
+
+<script>
+const ENDPOINT = "PENDING_BRIDGE_URL";
+document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = e.target, s = document.getElementById("form-status");
+  const data = Object.fromEntries(new FormData(f).entries());
+  data.business = "T4A"; data.source = "texan4america.com"; data.request_type = "Launch notify";
+  if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Sign-ups open shortly — check back soon."; return; }
+  try {
+    const r = await fetch(ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
+    if (!r.ok) throw 0;
+    f.reset(); s.textContent = "You're on the list. God bless, and stay tuned.";
+  } catch { s.textContent = "Something went wrong — please try again later."; }
+});
+</script>
+</body>
+</html>
