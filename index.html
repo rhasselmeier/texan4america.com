@@ -40,6 +40,7 @@
   footer { border-top:1px solid rgba(245,241,232,.18); padding:1.8rem 0; text-align:center; font-size:.8rem; color:#9a9586; }
   footer a { color:var(--gold); text-decoration:none; }
 </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div class="stripe"></div>
@@ -67,6 +68,8 @@
         <div><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
         <div><label for="message">Anything you'd like to hear covered?</label><textarea id="message" name="message" rows="3"></textarea></div>
         <p class="fineprint">Your info is used only to notify you about the launch and respond to your note — see the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.</p>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8MVIhSPLH80f6N" data-theme="auto"></div>
         <div><button type="submit">Keep Me Posted</button><div id="form-status" role="status"></div></div>
       </form>
     </div>
