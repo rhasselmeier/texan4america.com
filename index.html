@@ -69,8 +69,8 @@
         <div><label for="message">Anything you'd like to hear covered?</label><textarea id="message" name="message" rows="3"></textarea></div>
         <p class="fineprint">Your info is used only to notify you about the launch and respond to your note — see the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.</p>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px">
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8MVIhSPLH80f6N" data-theme="auto"></div>
-        <div><button type="submit">Keep Me Posted</button><div id="form-status" role="status"></div></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8MVIhSPLH80f6N" data-theme="auto" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" data-error-callback="onTurnstileError"></div>
+        <div><button type="submit" disabled>Keep Me Posted</button><div id="form-status" role="status"></div></div>
       </form>
     </div>
   </section>
@@ -82,17 +82,54 @@
 
 <script>
 const ENDPOINT = "https://agii-vapi-bridge-9383.twil.io/web-contact";
-document.getElementById("contact-form").addEventListener("submit", async (e) => {
+const form = document.getElementById("contact-form");
+const submitBtn = form.querySelector('button[type="submit"]');
+const statusEl = document.getElementById("form-status");
+let submitInFlight = false;
+
+function turnstileToken(f) {
+  const el = f.querySelector('[name="cf-turnstile-response"]');
+  if (el && el.value) return el.value;
+  try { return window.turnstile?.getResponse() || ""; } catch { return ""; }
+}
+
+function resetTurnstile() {
+  if (window.turnstile) window.turnstile.reset();
+  submitBtn.disabled = true;
+}
+
+window.onTurnstileSuccess = function () {
+  if (!submitInFlight) submitBtn.disabled = false;
+};
+window.onTurnstileExpired = function () { submitBtn.disabled = true; };
+window.onTurnstileError = function () { submitBtn.disabled = true; };
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const f = e.target, s = document.getElementById("form-status");
+  if (submitInFlight) return;
+  const f = e.target, s = statusEl;
+  const token = turnstileToken(f);
+  if (!token) {
+    s.textContent = "Please wait for the verification check to finish, then press Send.";
+    return;
+  }
   const data = Object.fromEntries(new FormData(f).entries());
   data.business = "T4A"; data.source = "texan4america.com"; data.request_type = "Launch notify";
+  data["cf-turnstile-response"] = token;
   if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Sign-ups open shortly — check back soon."; return; }
+  submitInFlight = true;
+  submitBtn.disabled = true;
   try {
     const r = await fetch(ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
     if (!r.ok) throw 0;
     f.reset(); s.textContent = "You're on the list. God bless, and stay tuned.";
-  } catch { s.textContent = "Something went wrong — please try again later."; }
+    resetTurnstile();
+  } catch {
+    s.textContent = "Something went wrong — please try again later.";
+    resetTurnstile();
+  } finally {
+    submitInFlight = false;
+  }
 });
 </script>
 </body>
