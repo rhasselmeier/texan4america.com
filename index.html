@@ -103,6 +103,7 @@ window.onTurnstileSuccess = function () {
 };
 window.onTurnstileExpired = function () { submitBtn.disabled = true; };
 window.onTurnstileError = function () { submitBtn.disabled = true; };
+window.addEventListener("load",function(){if(!window.turnstile)submitBtn.disabled=false});
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
