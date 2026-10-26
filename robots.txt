@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://texan4america.com/sitemap.xml
