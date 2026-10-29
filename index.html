@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Texan4America — Faith. Family. Freedom. Coming Soon.</title>
-<meta name="description" content="Texan4America — a blog and podcast on faith, family, and freedom from a native Texan. Coming soon.">
+<title>Texan4America: Faith. Family. Freedom. Coming Soon.</title>
+<meta name="description" content="Texan4America: a blog and podcast on faith, family, and freedom from a native Texan. Coming soon.">
 <link rel="canonical" href="https://texan4america.com/">
 <style>
   :root { --navy:#1a2a4a; --red:#a6373f; --cream:#f5f1e8; --gold:#c9a24b; --ink:#22273a; }
@@ -50,8 +50,8 @@
     <div class="star">&#9733; &#9733; &#9733;</div>
     <h1>Texan<span class="four">4</span>America</h1>
     <div class="motto">Faith &middot; Family &middot; Freedom</div>
-    <div class="coming">Blog &amp; Podcast — Coming Soon</div>
-    <p class="creed">Plain talk from a <b>native Texan</b>, husband, and father — on the faith that grounds us, the families that build us, and the freedoms that make America worth defending.</p>
+    <div class="coming">Blog &amp; Podcast: Coming Soon</div>
+    <p class="creed">Plain talk from a <b>native Texan</b>, husband, and father, on the faith that grounds us, the families that build us, and the freedoms that make America worth defending.</p>
   </header>
 
   <div class="pillars">
@@ -68,7 +68,7 @@
         <div><label for="name">Name *</label><input id="name" name="name" required autocomplete="name"></div>
         <div><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
         <div><label for="message">Anything you'd like to hear covered?</label><textarea id="message" name="message" rows="3"></textarea></div>
-        <p class="fineprint">Your info is used only to notify you about the launch and respond to your note — see the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.</p>
+        <p class="fineprint">Your info is used only to notify you about the launch and respond to your note. See the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.</p>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8MVIhSPLH80f6N" data-theme="auto" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" data-error-callback="onTurnstileError"></div>
         <div><button type="submit" disabled>Keep Me Posted</button><div id="form-status" role="status"></div></div>
@@ -118,7 +118,7 @@ form.addEventListener("submit", async (e) => {
   const data = Object.fromEntries(new FormData(f).entries());
   data.business = "T4A"; data.source = "texan4america.com"; data.request_type = "Launch notify";
   data["cf-turnstile-response"] = token;
-  if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Sign-ups open shortly — check back soon."; return; }
+  if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Sign-ups open shortly. Check back soon."; return; }
   submitInFlight = true;
   submitBtn.disabled = true;
   try {
@@ -127,7 +127,7 @@ form.addEventListener("submit", async (e) => {
     f.reset(); s.textContent = "You're on the list. God bless, and stay tuned.";
     resetTurnstile();
   } catch {
-    s.textContent = "Something went wrong — please try again later.";
+    s.textContent = "Something went wrong. Please try again later.";
     resetTurnstile();
   } finally {
     submitInFlight = false;
