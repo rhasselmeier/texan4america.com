@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Texan4America">
+  <rect width="32" height="32" fill="#1a2a4a"/>
+  <rect y="29" width="32" height="3" fill="#a6373f"/>
+  <polygon fill="#c9a24b" points="16.00,3.62 18.43,11.16 26.35,11.14 19.93,15.78 22.40,23.30 16.00,18.63 9.60,23.30 12.07,15.78 5.65,11.14 13.57,11.16"/>
+</svg>
